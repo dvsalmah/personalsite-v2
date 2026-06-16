@@ -22,7 +22,7 @@ export function ThemeToggleFloating() {
       <ThemeToggleButton2 
         isDark={isDark}
         onToggle={toggleTheme}
-        className="h-10 w-10 border border-slate-200 dark:border-slate-700/50 cursor-pointer bg-surface text-text"
+        className="h-10 w-10 border border-slate-200 dark:border-slate-700/50 cursor-pointer bg-background text-text"
       />
     </div>
   );
