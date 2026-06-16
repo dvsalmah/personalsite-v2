@@ -6,6 +6,7 @@
   --color-surface-hover: var(--surface-hover);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
   --color-muted: var(--muted);
   --color-border: var(--border);
 }
@@ -15,8 +16,9 @@
     --bg: #ffffff;
     --surface: #f8fafc;
     --surface-hover: #f1f5f9;
-    --primary: #F1A7C6; 
-    --primary-foreground: #0f172a;
+    --primary: #0f172a; 
+    --primary-foreground: #ffffff;
+    --secondary: #646566;
     --muted: #64748b;
     --border: #e2e8f0;
     --text: #0f172a;
@@ -38,6 +40,7 @@
     --surface-hover: #1E293B;
     --primary: #F1A7C6;
     --primary-foreground: #0f172a;
+    --secondary: #c084fc;
     --muted: #94a3b8;
     --border: #334155;
     --text: #f8fafc;

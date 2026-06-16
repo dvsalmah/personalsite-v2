@@ -93,11 +93,12 @@ export const heroBgText: Variants = {
   },
 };
 
-/** hero image: fade in dengan delay */
+/** hero image: slide in dari kanan dengan delay */
 export const heroImage: Variants = {
-  initial: { opacity: 0 },
+  initial: { opacity: 0, x: 100 },
   animate: {
     opacity: 1,
+    x: 0,
     transition: { duration: 0.8, ease: "easeOut", delay: 0.3 },
   },
 };
@@ -118,7 +119,7 @@ export const heroButton: Variants = {
   animate: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.1, ease: "easeOut" },
   },
 };
 
