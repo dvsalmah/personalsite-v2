@@ -30,11 +30,11 @@ function ProjectCard({ project }: { project: Project }) {
 
   return (
     <motion.div whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}>
-      <div className="bg-[#1E293B] text-card-foreground rounded-xl border border-slate-700 relative z-20 group hover:border-[#F1A7C6] transition-all duration-300 hover:shadow-xl hover:shadow-[#F1A7C6]/10 flex flex-col overflow-hidden h-full">
+      <div className="bg-surface-hover text-card-foreground rounded-xl border border-slate-700 relative z-20 group hover:border-primary transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 flex flex-col overflow-hidden h-full">
         <div className="p-6 flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center gap-3 mb-3">
-            <div className="h-12 w-12 mt-4 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-2xl border border-slate-700 group-hover:border-[#F1A7C6] transition-colors">
+            <div className="h-12 w-12 mt-4 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-2xl border border-slate-700 group-hover:border-primary transition-colors">
               {isImageLogo ? (
                 <img
                   src={project.logo}
@@ -46,14 +46,14 @@ function ProjectCard({ project }: { project: Project }) {
               )}
             </div>
             <div className="flex-1 min-w-0">
-              <h3 className="font-bold mt-4 text-lg text-[#F8FAFC] tracking-tight truncate">
+              <h3 className="font-bold mt-4 text-lg text-text tracking-tight truncate">
                 {project.title}
               </h3>
               <p className="text-xs text-slate-500 truncate">{project.context}</p>
             </div>
           </div>
 
-          <p className="text-[#F1A7C6] text-xs font-medium mb-2 line-clamp-1">{project.tagline}</p>
+          <p className="text-primary text-xs font-medium mb-2 line-clamp-1">{project.tagline}</p>
           <p className="text-slate-400 text-sm font-normal leading-relaxed mb-4 line-clamp-2 flex-grow">
             {project.description}
           </p>
@@ -79,7 +79,7 @@ function ProjectCard({ project }: { project: Project }) {
           <div className="flex items-center gap-3 mt-auto">
             <Link
               href={`/projects/${project.id}`}
-              className="relative bg-[#F8FAFC] text-slate-900 hover:bg-slate-100 hover:pr-10 font-semibold text-sm py-2.5 px-4 pr-8 rounded-lg flex items-center justify-start gap-2 transition-all duration-200 group/btn"
+              className="relative bg-text text-slate-900 hover:bg-slate-100 hover:pr-10 font-semibold text-sm py-2.5 px-4 pr-8 rounded-lg flex items-center justify-start gap-2 transition-all duration-200 group/btn"
             >
               View Project
               <ArrowRight size={18} className="absolute right-2 transition-transform" />
@@ -119,7 +119,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function ProjectSection() {
   return (
-    <section id="projects" className="py-24 bg-[#0F172A] text-slate-100 px-8 md:px-16 lg:px-24">
+    <section id="projects" className="py-24 bg-surface text-slate-100 px-8 md:px-16 lg:px-24">
       <div className="max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto px-4 md:px-0">
         <div className="text-center mb-12">
           <SectionHeader

@@ -26,7 +26,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="about" className="py-24 bg-[#0F172A] text-slate-100 px-8 md:px-16 lg:px-24">
+    <section id="about" className="py-24 bg-surface text-slate-100 px-8 md:px-16 lg:px-24">
       <div className="lg:max-w-6xl md:max-w-2xl mx-auto px-6 md:px-5">
         <SectionHeader title="Know More" />
 
@@ -39,7 +39,7 @@ export default function AboutSection() {
             whileInView="whileInView"
             viewport={viewportOnce}
           >
-            <p className="text-center md:text-left text-[#CBD5E1] text-lg leading-relaxed">
+            <p className="text-center md:text-left text-muted text-lg leading-relaxed">
               A second-year Computer Science student at Brawijaya University with a growing interest
               in Product Management, alongside a strong curiosity for front-end development.
               Experience also includes working in robotics using Python, OpenCV, and YOLO.

@@ -56,9 +56,8 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`Go to image ${i + 1}`}
-            className={`w-1.5 h-1.5 rounded-full transition-all ${
-              i === current ? "bg-[#F1A7C6] w-4" : "bg-white/40"
-            }`}
+            className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? "bg-[#F1A7C6] w-4" : "bg-white/40"
+              }`}
           />
         ))}
       </div>

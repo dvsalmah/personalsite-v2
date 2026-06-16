@@ -8,7 +8,7 @@ import { timelineVariant, viewportOnce } from "@/lib/animations";
 
 export default function ExperienceSection() {
   return (
-    <section id="experiences" className="py-24 bg-[#1E293B] text-[#F8FAFC]">
+    <section id="experiences" className="py-24 bg-surface-hover text-text">
       <div className="max-w-6xl mx-auto px-4">
         <SectionHeader
           title="Experiences"

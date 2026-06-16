@@ -11,7 +11,7 @@ export default function Footer() {
   const iconLinks = socialLinks.filter((s) => s.icon !== "mail");
 
   return (
-    <footer className="bg-[#1E293B] text-[#F8FAFC] py-8 px-8">
+    <footer className="bg-surface-hover text-text py-8 px-8">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col">
           <div className="flex flex-row justify-between items-center gap-6">
@@ -21,7 +21,7 @@ export default function Footer() {
             </button>
 
             {/* Social icons */}
-            <div className="flex space-x-4 text-[#CBD5E1]/60">
+            <div className="flex space-x-4 text-muted/60">
               {iconLinks.map((link) => {
                 const Icon = ICON_MAP[link.icon];
                 return (
@@ -31,7 +31,7 @@ export default function Footer() {
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
                     aria-label={link.label}
-                    className="flex items-center hover:text-[#F8FAFC] transition-colors"
+                    className="flex items-center hover:text-text transition-colors"
                   >
                     <Icon size={22} />
                   </a>

@@ -32,7 +32,7 @@ interface StatusState {
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const INPUT_BASE =
-  "w-full px-3 py-2 bg-slate-800 border border-slate-500 rounded-lg focus:border-[#F1A7C6] focus:shadow-xl focus:shadow-[#F1A7C6]/10 focus:outline-none transition-colors text-slate-100 placeholder:text-slate-500";
+  "w-full px-3 py-2 bg-slate-800 border border-slate-500 rounded-lg focus:border-primary focus:shadow-xl focus:shadow-primary/10 focus:outline-none transition-colors text-slate-100 placeholder:text-slate-500";
 
 const SOCIAL_ICON_MAP = { mail: Mail, github: Github, linkedin: Linkedin, instagram: Instagram };
 
@@ -115,7 +115,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-[#0F172A] text-slate-100 px-8 md:px-16 lg:px-24">
+    <section id="contact" className="py-24 bg-surface text-slate-100 px-8 md:px-16 lg:px-24">
       <div className="max-w-5xl mx-auto px-4 md:px-0">
         <SectionHeader
           title="Get in Touch"
@@ -201,7 +201,7 @@ export default function ContactSection() {
               <motion.button
                 type="submit"
                 disabled={isLoading}
-                className={`w-[150px] lg:w-[180px] flex items-center justify-center gap-2 rounded bg-[#F1A7C6] px-6 md:px-6 lg:px-8 py-2.5 md:py-3 text-xs lg:text-sm font-bold text-slate-900 shadow-[0_0_20px_rgba(241,167,198,0.3)] transition transform whitespace-nowrap ${isLoading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#F1A7C6]/90"
+                className={`w-[150px] lg:w-[180px] flex items-center justify-center gap-2 rounded bg-primary px-6 md:px-6 lg:px-8 py-2.5 md:py-3 text-xs lg:text-sm font-bold text-slate-900 shadow-lg shadow-primary/30 transition transform whitespace-nowrap ${isLoading ? "opacity-50 cursor-not-allowed" : "hover:bg-primary/90"
                   }`}
               >
                 {isLoading ? "Sending..." : "Send Message"}
@@ -229,7 +229,7 @@ export default function ContactSection() {
 
           {/* Social links */}
           <motion.div
-            className="space-y-4 text-[#CBD5E1]/60"
+            className="space-y-4 text-muted/60"
             variants={contactSocialContainer}
             initial="initial"
             whileInView="whileInView"
@@ -243,7 +243,7 @@ export default function ContactSection() {
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-2 hover:text-[#F1A7C6] transition-colors"
+                  className="flex items-center gap-2 hover:text-primary transition-colors"
                   variants={contactSocialLink}
                   whileHover={{ x: 5, transition: { duration: 0.2 } }}
                 >

@@ -26,7 +26,7 @@ function BackLink() {
   return (
     <Link
       href="/#projects"
-      className="inline-flex items-center gap-2 mb-6 text-slate-400 hover:text-[#F8FAFC] transition-colors"
+      className="inline-flex items-center gap-2 mb-6 text-slate-400 hover:text-text transition-colors"
     >
       <ArrowLeft className="h-4 w-4" /> Back to Projects
     </Link>
@@ -36,7 +36,7 @@ function BackLink() {
 function MetaRow({ icon: Icon, text }: { icon: React.ElementType; text: string }) {
   return (
     <div className="flex items-center gap-2">
-      <Icon className="h-4 w-4 text-[#F1A7C6]" />
+      <Icon className="h-4 w-4 text-primary" />
       <span>{text}</span>
     </div>
   );
@@ -50,7 +50,7 @@ function InfoCard({ children }: { children: React.ReactNode }) {
       whileInView="whileInView"
       viewport={viewportOnce}
     >
-      <div className="bg-[#1E293B] border border-slate-700 rounded-xl">
+      <div className="bg-surface border border-slate-700 rounded-xl">
         <div className="p-6 md:p-8">{children}</div>
       </div>
     </motion.div>
@@ -59,7 +59,7 @@ function InfoCard({ children }: { children: React.ReactNode }) {
 
 function CardTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-xl font-bold text-[#F8FAFC] mt-6 md:mt-2 lg:mt-0 mb-4">{children}</h3>
+    <h3 className="text-xl font-bold text-text mt-6 md:mt-2 lg:mt-0 mb-4">{children}</h3>
   );
 }
 
@@ -71,7 +71,7 @@ function SideCard({ children }: { children: React.ReactNode }) {
       whileInView="whileInView"
       viewport={viewportOnce}
     >
-      <div className="bg-[#1E293B] border border-slate-700 rounded-xl">
+      <div className="bg-surface border border-slate-700 rounded-xl">
         <div className="p-6">{children}</div>
       </div>
     </motion.div>
@@ -83,7 +83,7 @@ function FeatureList({ items }: { items: string[] }) {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
       {items.map((item, idx) => (
         <div key={idx} className="flex items-start gap-3">
-          <CheckCircle2 className="h-5 w-5 text-[#F1A7C6] shrink-0 mt-0.5" />
+          <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
           <span className="text-slate-300 text-sm">{item}</span>
         </div>
       ))}
@@ -105,7 +105,7 @@ function ProjectHeader({
   return (
     <motion.div variants={detailHeader} initial="initial" animate="animate">
       <BackLink />
-      <h1 className="text-4xl md:text-5xl font-bold text-[#F8FAFC] mb-2">{title}</h1>
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-2">{title}</h1>
       <p className="text-xl text-slate-400 mb-4">{tagline}</p>
       <div className="flex flex-wrap gap-4 text-sm text-slate-400">
         <MetaRow icon={Users} text={teamSize} />
@@ -119,7 +119,7 @@ function ProjectHeader({
 
 function FEProjectLayout({ project }: { project: FEProjectDetail }) {
   return (
-    <section className="min-h-screen bg-[#0F172A] text-slate-100 pt-28 pb-12 lg:pt-20 px-4 md:px-10 lg:px-20">
+    <section className="min-h-screen bg-background text-slate-100 pt-28 pb-12 lg:pt-20 px-4 md:px-10 lg:px-20">
       <div className="max-w-4xl md:max-w-5xl mx-auto px-5 md:px-8 space-y-8">
         <ProjectHeader
           title={project.title}
@@ -158,7 +158,7 @@ function FEProjectLayout({ project }: { project: FEProjectDetail }) {
           {/* Right */}
           <div className="space-y-6">
             <SideCard>
-              <h3 className="text-lg font-semibold text-[#F8FAFC] mt-4 mb-1">Technologies</h3>
+              <h3 className="text-lg font-semibold text-text mt-4 mb-1">Technologies</h3>
               <p className="text-xs text-slate-400 mb-3">Built with</p>
               <div className="flex flex-wrap gap-1.5">
                 {project.technologies.map((tech, idx) => (
@@ -173,7 +173,7 @@ function FEProjectLayout({ project }: { project: FEProjectDetail }) {
             </SideCard>
 
             <SideCard>
-              <h3 className="text-lg font-semibold text-[#F8FAFC] mt-4 mb-3">Links</h3>
+              <h3 className="text-lg font-semibold text-text mt-4 mb-3">Links</h3>
               <div className="flex flex-col gap-3">
                 {project.liveUrl && (
                   <ExternalLinkButton href={project.liveUrl} icon={ExternalLink} label="View Live Demo" />
@@ -194,7 +194,7 @@ function FEProjectLayout({ project }: { project: FEProjectDetail }) {
 
 function PMProjectLayout({ project }: { project: PMProjectDetail }) {
   return (
-    <section className="min-h-screen bg-[#0F172A] text-slate-100 pt-28 pb-12 lg:pt-20 px-4 md:px-10 lg:px-20">
+    <section className="min-h-screen bg-background text-slate-100 pt-28 pb-12 lg:pt-20 px-4 md:px-10 lg:px-20">
       <div className="max-w-4xl md:max-w-5xl mx-auto px-5 md:px-8 space-y-8">
         <ProjectHeader
           title={project.title}
@@ -220,11 +220,11 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
             {/* Context */}
             <InfoCard>
               <div className="flex items-start gap-3 mt-6 md:mt-0 mb-4">
-                <div className="p-2 bg-[#F1A7C6]/10 rounded-lg">
-                  <Target className="h-5 w-5 text-[#F1A7C6]" />
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Target className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#F8FAFC]">Competition Context</h3>
+                  <h3 className="text-lg font-bold text-text">Competition Context</h3>
                   <p className="text-sm text-slate-400">{project.context}</p>
                 </div>
               </div>
@@ -243,11 +243,11 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
             <InfoCard>
               <CardTitle>Problem & Approach</CardTitle>
               <div className="mb-4">
-                <h4 className="text-sm font-semibold text-[#F1A7C6] mb-2">The Problem</h4>
+                <h4 className="text-sm font-semibold text-primary mb-2">The Problem</h4>
                 <p className="text-slate-300 text-sm leading-relaxed">{project.problem}</p>
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-[#F1A7C6] mb-2">My Approach</h4>
+                <h4 className="text-sm font-semibold text-primary mb-2">My Approach</h4>
                 <div className="text-slate-300 text-sm leading-relaxed whitespace-pre-line">
                   {project.approach}
                 </div>
@@ -266,8 +266,8 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                 <CardTitle>Challenges & Solutions</CardTitle>
                 <div className="space-y-4">
                   {project.challenges.map((c, idx) => (
-                    <div key={idx} className="border-l-2 border-[#F1A7C6] pl-4">
-                      <h4 className="font-semibold text-[#F8FAFC] mb-2 text-sm">{c.title}</h4>
+                    <div key={idx} className="border-l-2 border-primary pl-4">
+                      <h4 className="font-semibold text-text mb-2 text-sm">{c.title}</h4>
                       <div className="space-y-2 text-xs">
                         <div>
                           <span className="text-slate-400 font-medium">Problem:</span>
@@ -278,7 +278,7 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                           <p className="text-slate-300 mt-1">{c.solution}</p>
                         </div>
                         <div>
-                          <span className="text-[#F1A7C6] font-medium">Result:</span>
+                          <span className="text-primary font-medium">Result:</span>
                           <p className="text-slate-300 mt-1">{c.result}</p>
                         </div>
                       </div>
@@ -291,10 +291,10 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
             {/* Impact */}
             <InfoCard>
               <div className="flex items-start gap-3 mt-6 md:mt-2 lg:mt-0 mb-4">
-                <div className="p-2 bg-[#F1A7C6]/10 rounded-lg">
-                  <TrendingUp className="h-5 w-5 text-[#F1A7C6]" />
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <TrendingUp className="h-5 w-5 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-[#F8FAFC]">Impact & Results</h3>
+                <h3 className="text-xl font-bold text-text">Impact & Results</h3>
               </div>
               <FeatureList items={project.impact} />
             </InfoCard>
@@ -303,15 +303,15 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
             {project.learnings && project.learnings.length > 0 && (
               <InfoCard>
                 <div className="flex items-start gap-3 mt-6 md:mt-2 lg:mt-0 mb-4">
-                  <div className="p-2 bg-[#F1A7C6]/10 rounded-lg">
-                    <Lightbulb className="h-5 w-5 text-[#F1A7C6]" />
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Lightbulb className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#F8FAFC]">Key Learnings</h3>
+                  <h3 className="text-xl font-bold text-text">Key Learnings</h3>
                 </div>
                 <ul className="space-y-2">
                   {project.learnings.map((l, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="text-[#F1A7C6]">•</span>
+                      <span className="text-primary">•</span>
                       <span className="text-slate-300 text-sm">{l}</span>
                     </li>
                   ))}
@@ -324,12 +324,12 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
           <div className="space-y-6">
             {/* My Role */}
             <SideCard>
-              <h3 className="text-lg font-bold text-[#F8FAFC] mt-4 mb-2">My Role</h3>
-              <p className="text-sm text-[#F1A7C6] mb-3">{project.role}</p>
+              <h3 className="text-lg font-bold text-text mt-4 mb-2">My Role</h3>
+              <p className="text-sm text-primary mb-3">{project.role}</p>
               <ul className="space-y-2">
                 {project.myRole.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-xs text-slate-400">
-                    <CheckCircle2 className="h-3 w-3 text-[#F1A7C6] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-3 w-3 text-primary shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -339,14 +339,14 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
             {/* Metrics */}
             {project.metrics && (
               <SideCard>
-                <h3 className="text-lg font-semibold text-[#F8FAFC] mt-4 mb-2">Key Metrics</h3>
+                <h3 className="text-lg font-semibold text-text mt-4 mb-2">Key Metrics</h3>
                 <div className="space-y-3">
                   {Object.entries(project.metrics).map(([key, value], idx) => (
                     <div key={idx} className="flex justify-between items-start gap-2">
                       <span className="text-xs text-slate-400 uppercase tracking-wide">
                         {key.replace(/([A-Z])/g, " $1").trim()}
                       </span>
-                      <span className="text-xs font-semibold text-[#F8FAFC] text-right">{value}</span>
+                      <span className="text-xs font-semibold text-text text-right">{value}</span>
                     </div>
                   ))}
                 </div>
@@ -356,7 +356,7 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
             {/* Prototype Link */}
             {project.prototypeUrl && (
               <SideCard>
-                <h3 className="text-lg font-semibold text-[#F8FAFC] mt-4 mb-3">Links</h3>
+                <h3 className="text-lg font-semibold text-text mt-4 mb-3">Links</h3>
                 <ExternalLinkButton href={project.prototypeUrl} icon={ExternalLink} label="View Prototype" />
               </SideCard>
             )}
@@ -383,7 +383,7 @@ function ExternalLinkButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full border border-[#F1A7C6]/30 bg-[#F1A7C6]/10 text-[#F1A7C6] hover:bg-[#F1A7C6]/20 hover:border-[#F1A7C6]/50 font-semibold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 text-sm"
+      className="w-full border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 hover:border-primary/50 font-semibold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 text-sm"
     >
       <Icon className="h-4 w-4" /> {label}
     </a>
@@ -403,13 +403,13 @@ export default function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-[#0F172A] flex items-center justify-center text-[#F8FAFC] px-4">
+      <div className="min-h-screen bg-background flex items-center justify-center text-text px-4">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
           <p className="text-slate-400 mb-6">The project &quot;{projectId}&quot; doesn&apos;t exist.</p>
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-2 text-[#F1A7C6] hover:text-[#F1A7C6]/80 transition-colors group"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors group"
           >
             <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             <span className="hover:underline">Back to Projects</span>
