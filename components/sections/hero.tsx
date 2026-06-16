@@ -36,7 +36,7 @@ export default function HeroSection() {
         <img 
           src="/assets/profile-photo.webp" 
           alt="Dealova Nabila"
-          className="w-full h-full object-none dark:object-cover object-top"
+          className="w-full h-full object-cover object-top"
         />
         <div className="dark:absolute dark:inset-0 dark:bg-black/60" />
         <div className="hidden dark:block absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent md:bg-gradient-to-r md:from-background md:via-transparent md:to-transparent" />
@@ -56,8 +56,8 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="mt-2 md:mt-6 text-base md:text-lg text-slate-400 leading-relaxed">
-            Turn complex ideas into clear, user-centered products, with a product mindset.
+          <p className="mt-2 md:mt-4 text-base md:text-sm text-slate-400 leading-relaxed">
+            Interested in software development, web technologies, and digital products. Passionate about building practical solutions and creating meaningful experiences for users.
           </p>
 
           <motion.div
