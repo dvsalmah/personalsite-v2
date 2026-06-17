@@ -14,7 +14,13 @@ import { Button } from "@/components/ui/button";
 const CV_URL =
   "https://www.canva.com/design/DAG-SG-XbFE/fAA1VVO0OFh3db47JcdWXA/edit?utm_content=DAG-SG-XbFE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton";
 
-export default function HeroSection() {
+export default function HeroSection({
+  sectionClassName,
+  containerClassName,
+}: {
+  sectionClassName?: string;
+  containerClassName?: string;
+}) {
   return (
     <section
       id="home"
@@ -42,7 +48,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent md:bg-gradient-to-r md:from-background md:via-transparent md:to-transparent" />
       </motion.div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-14 lg:px-20 py-24 flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
+      <div className={`relative z-10 w-full flex flex-col md:grid md:grid-cols-2 gap-12 items-center ${containerClassName || ""} ${sectionClassName || ""}`}>
         <motion.div
           className="max-w-prose text-center md:text-left"
           variants={heroContent}

@@ -8,12 +8,18 @@ import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
-export default function SkillSection() {
+export default function SkillSection({
+  sectionClassName,
+  containerClassName,
+}: {
+  sectionClassName?: string;
+  containerClassName?: string;
+}) {
   const [activeTab, setActiveTab] = useState(skillCategories[0].title);
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
+    <section id="skills" className={`relative overflow-hidden ${sectionClassName || "py-24"}`}>
+      <div className={`relative z-10 w-full ${containerClassName || "max-w-6xl mx-auto px-4"}`}>
         <SectionHeader
           title="Skills & Technologies"
           subtitle="Driven by product thinking, supported by technical skills"

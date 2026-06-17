@@ -47,7 +47,7 @@ function InfoCard({ children }: { children: React.ReactNode }) {
 
 function CardTitle({ children }: { children: React.ReactNode }) {
     return (
-        <h3 className="text-xl font-bold text-[#F8FAFC] mt-6 md:mt-2 lg:mt-0 mb-4">{children}</h3>
+        <h3 className="text-xl font-bold text mt-6 md:mt-2 lg:mt-0 mb-4">{children}</h3>
     );
 }
 
@@ -72,7 +72,7 @@ function FeatureList({ items }: { items: string[] }) {
             {items.map((item, idx) => (
                 <div key={idx} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-slate-300 text-sm">{item}</span>
+                    <span className="text-300 text-sm">{item}</span>
                 </div>
             ))}
         </div>
@@ -92,9 +92,9 @@ function ProjectHeader({
 }) {
     return (
         <motion.div variants={detailHeader} initial="initial" animate="animate">
-            <h1 className="text-3xl md:text-5xl font-bold text-[#F8FAFC] mb-2">{title}</h1>
-            <p className="text-lg md:text-xl text-slate-400 mb-4">{tagline}</p>
-            <div className="flex flex-wrap gap-4 text-sm text-slate-400">
+            <h1 className="text-3xl md:text-5xl font-bold text mb-2">{title}</h1>
+            <p className="text-lg md:text-xl text-400 mb-4">{tagline}</p>
+            <div className="flex flex-wrap gap-4 text-sm text-400">
                 <MetaRow icon={Users} text={teamSize} />
                 <MetaRow icon={CalendarMinus2} text={year} />
             </div>
@@ -151,7 +151,7 @@ function FEProjectLayout({ project }: { project: FEProjectDetail }) {
                 <div className="lg:col-span-2 space-y-6">
                     <InfoCard>
                         <CardTitle>About the Project</CardTitle>
-                        <div className="text-slate-300 leading-relaxed whitespace-pre-line text-sm">
+                        <div className="text-300 leading-relaxed whitespace-pre-line text-sm">
                             {project.overview}
                         </div>
                     </InfoCard>
@@ -165,13 +165,13 @@ function FEProjectLayout({ project }: { project: FEProjectDetail }) {
                 {/* Right */}
                 <div className="space-y-6">
                     <SideCard>
-                        <h3 className="text-lg font-semibold text-[#F8FAFC] mt-4 mb-1">Technologies</h3>
-                        <p className="text-xs text-slate-400 mb-3">Built with</p>
+                        <h3 className="text-lg font-semibold text mt-4 mb-1">Technologies</h3>
+                        <p className="text-xs text-400 mb-3">Built with</p>
                         <div className="flex flex-wrap gap-1.5">
                             {project.technologies.map((tech, idx) => (
                                 <span
                                     key={idx}
-                                    className="bg-slate-900/60 border border-slate-600 text-slate-300 px-2 py-1 text-xs rounded-full"
+                                    className="bg-slate-900/60 border border-slate-600 text-300 px-2 py-1 text-xs rounded-full"
                                 >
                                     {tech}
                                 </span>
@@ -180,7 +180,7 @@ function FEProjectLayout({ project }: { project: FEProjectDetail }) {
                     </SideCard>
 
                     <SideCard>
-                        <h3 className="text-lg font-semibold text-[#F8FAFC] mt-4 mb-3">Links</h3>
+                        <h3 className="text-lg font-semibold text-text mt-4 mb-3">Links</h3>
                         <div className="flex flex-col gap-3">
                             {project.liveUrl && (
                                 <ExternalLinkButton href={project.liveUrl} icon={ExternalLink} label="View Live Demo" />
@@ -229,17 +229,17 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                                 <Target className="h-5 w-5 text-primary" />
                             </div>
                             <div>
-                                <h3 className="text-lg font-bold text-[#F8FAFC]">Competition Context</h3>
-                                <p className="text-sm text-slate-400">{project.context}</p>
+                                <h3 className="text-lg font-bold text">Competition Context</h3>
+                                <p className="text-sm text-400">{project.context}</p>
                             </div>
                         </div>
-                        <p className="text-slate-300 text-sm pl-10">{project.category}</p>
+                        <p className="text-300 text-sm pl-10">{project.category}</p>
                     </InfoCard>
 
                     {/* Overview */}
                     <InfoCard>
                         <CardTitle>Project Overview</CardTitle>
-                        <div className="text-slate-300 leading-relaxed whitespace-pre-line text-sm">
+                        <div className="text-300 leading-relaxed whitespace-pre-line text-sm">
                             {project.overview}
                         </div>
                     </InfoCard>
@@ -249,11 +249,11 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                         <CardTitle>Problem & Approach</CardTitle>
                         <div className="mb-4">
                             <h4 className="text-sm font-semibold text-primary mb-2">The Problem</h4>
-                            <p className="text-slate-300 text-sm leading-relaxed">{project.problem}</p>
+                            <p className="text-300 text-sm leading-relaxed">{project.problem}</p>
                         </div>
                         <div>
                             <h4 className="text-sm font-semibold text-primary mb-2">My Approach</h4>
-                            <div className="text-slate-300 text-sm leading-relaxed whitespace-pre-line">
+                            <div className="text-300 text-sm leading-relaxed whitespace-pre-line">
                                 {project.approach}
                             </div>
                         </div>
@@ -272,19 +272,19 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                             <div className="space-y-4">
                                 {project.challenges.map((c, idx) => (
                                     <div key={idx} className="border-l-2 border-primary pl-4">
-                                        <h4 className="font-semibold text-[#F8FAFC] mb-2 text-sm">{c.title}</h4>
+                                        <h4 className="font-semibold text-text mb-2 text-sm">{c.title}</h4>
                                         <div className="space-y-2 text-xs">
                                             <div>
-                                                <span className="text-slate-400 font-medium">Problem:</span>
-                                                <p className="text-slate-300 mt-1">{c.problem}</p>
+                                                <span className="text-400 font-medium">Problem:</span>
+                                                <p className="text-300 mt-1">{c.problem}</p>
                                             </div>
                                             <div>
-                                                <span className="text-slate-400 font-medium">Solution:</span>
-                                                <p className="text-slate-300 mt-1">{c.solution}</p>
+                                                <span className="text-400 font-medium">Solution:</span>
+                                                <p className="text-300 mt-1">{c.solution}</p>
                                             </div>
                                             <div>
                                                 <span className="text-primary font-medium">Result:</span>
-                                                <p className="text-slate-300 mt-1">{c.result}</p>
+                                                <p className="text-300 mt-1">{c.result}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -299,7 +299,7 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                             <div className="p-2 bg-primary/10 rounded-lg">
                                 <TrendingUp className="h-5 w-5 text-primary" />
                             </div>
-                            <h3 className="text-xl font-bold text-[#F8FAFC]">Impact & Results</h3>
+                            <h3 className="text-xl font-bold text-text">Impact & Results</h3>
                         </div>
                         <FeatureList items={project.impact} />
                     </InfoCard>
@@ -311,13 +311,13 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                                 <div className="p-2 bg-primary/10 rounded-lg">
                                     <Lightbulb className="h-5 w-5 text-primary" />
                                 </div>
-                                <h3 className="text-xl font-bold text-[#F8FAFC]">Key Learnings</h3>
+                                <h3 className="text-xl font-bold text-text">Key Learnings</h3>
                             </div>
                             <ul className="space-y-2">
                                 {project.learnings.map((l, idx) => (
                                     <li key={idx} className="flex items-start gap-3">
                                         <span className="text-primary">•</span>
-                                        <span className="text-slate-300 text-sm">{l}</span>
+                                        <span className="text-300 text-sm">{l}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -329,11 +329,11 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                 <div className="space-y-6">
                     {/* My Role */}
                     <SideCard>
-                        <h3 className="text-lg font-bold text-[#F8FAFC] mt-4 mb-2">My Role</h3>
+                        <h3 className="text-lg font-bold text-text mt-4 mb-2">My Role</h3>
                         <p className="text-sm text-primary mb-3">{project.role}</p>
                         <ul className="space-y-2">
                             {project.myRole.map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-xs text-slate-400">
+                                <li key={idx} className="flex items-start gap-2 text-xs text-400">
                                     <CheckCircle2 className="h-3 w-3 text-primary shrink-0 mt-0.5" />
                                     <span>{item}</span>
                                 </li>
@@ -344,14 +344,14 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                     {/* Metrics */}
                     {project.metrics && (
                         <SideCard>
-                            <h3 className="text-lg font-semibold text-[#F8FAFC] mt-4 mb-2">Key Metrics</h3>
+                            <h3 className="text-lg font-semibold text-text mt-4 mb-2">Key Metrics</h3>
                             <div className="space-y-3">
                                 {Object.entries(project.metrics).map(([key, value], idx) => (
                                     <div key={idx} className="flex justify-between items-start gap-2">
-                                        <span className="text-xs text-slate-400 uppercase tracking-wide">
+                                        <span className="text-xs text-400 uppercase tracking-wide">
                                             {key.replace(/([A-Z])/g, " $1").trim()}
                                         </span>
-                                        <span className="text-xs font-semibold text-[#F8FAFC] text-right">{value}</span>
+                                        <span className="text-xs font-semibold text-text text-right">{value}</span>
                                     </div>
                                 ))}
                             </div>
@@ -361,7 +361,7 @@ function PMProjectLayout({ project }: { project: PMProjectDetail }) {
                     {/* Prototype Link */}
                     {project.prototypeUrl && (
                         <SideCard>
-                            <h3 className="text-lg font-semibold text-[#F8FAFC] mt-4 mb-3">Links</h3>
+                            <h3 className="text-lg font-semibold text-text mt-4 mb-3">Links</h3>
                             <ExternalLinkButton href={project.prototypeUrl} icon={ExternalLink} label="View Prototype" />
                         </SideCard>
                     )}
@@ -410,7 +410,7 @@ export function ProjectModal({ projectId, onClose }: ProjectModalProps) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="absolute inset-0 bg-[#0F172A]/80 backdrop-blur-sm"
+                        className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"
                     />
 
                     {/* Modal Content */}
@@ -419,14 +419,14 @@ export function ProjectModal({ projectId, onClose }: ProjectModalProps) {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="relative w-full max-w-5xl bg-[#0F172A] border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col z-10"
+                        className="relative w-full max-w-5xl bg-background border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col z-10"
                         style={{ maxHeight: "85vh" }}
                     >
                         {/* Close Button*/}
                         <div className="absolute top-4 right-4 z-20">
                             <button
                                 onClick={onClose}
-                                className="cursor-pointer p-2 bg-surface-hover/80 hover:bg-surface-hover text-slate-400 hover:text-white rounded-full transition-colors backdrop-blur-md"
+                                className="cursor-pointer p-2 bg-surface-hover/80 hover:bg-surface-hover text-400 hover:text-white rounded-full transition-colors backdrop-blur-md"
                             >
                                 <X size={20} />
                             </button>

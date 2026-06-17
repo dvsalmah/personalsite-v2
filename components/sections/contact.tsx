@@ -47,7 +47,13 @@ function validateEmail(email: string): boolean {
 
 //  ContactSection 
 
-export default function ContactSection() {
+export default function ContactSection({
+  sectionClassName,
+  containerClassName,
+}: {
+  sectionClassName?: string;
+  containerClassName?: string;
+}) {
     const [formData, setFormData] = useState<FormData>(EMPTY_FORM);
     const [isLoading, setIsLoading] = useState(false);
     const [status, setStatus] = useState<StatusState>({ type: "", message: "" });
@@ -91,8 +97,8 @@ export default function ContactSection() {
     }
 
     return (
-        <section id="contact" className="py-24 bg-background text-text px-8 md:px-16 lg:px-24">
-            <div className="max-w-5xl mx-auto px-4 md:px-0">
+        <section id="contact" className={`bg-background text-text ${sectionClassName || "py-24 px-8 md:px-16 lg:px-24"}`}>
+            <div className={`w-full ${containerClassName || "max-w-5xl mx-auto px-4 md:px-0"}`}>
                 <SectionHeader
                     title="Get in Touch"
                     subtitle="Have an idea, a project, or something worth exploring? Let's talk!"
