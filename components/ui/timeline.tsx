@@ -42,7 +42,6 @@ export function Timeline({ data }: TimelineProps) {
   const stepSize = trackSize > 0 ? trackSize / maxIdx : 0;
   const progressOffset = isMobile ? y : x;
 
-  // Smart Pop-up Placement
   useEffect(() => {
     const handleScroll = () => {
       if (containerRef.current) {
@@ -60,7 +59,17 @@ export function Timeline({ data }: TimelineProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Sync offset only when window resizes to keep the thumb at a valid position
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (trackRef.current && !trackRef.current.contains(event.target as Node)) {
+        setActiveIndex(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   useEffect(() => {
     if (trackSize > 0 && activeIndex !== null) {
       animate(progressOffset, activeIndex * stepSize, { type: "spring", stiffness: 300, damping: 30 });
