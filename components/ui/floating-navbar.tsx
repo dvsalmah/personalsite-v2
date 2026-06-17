@@ -1,5 +1,5 @@
 "use client";
-import React, { JSX, useState } from "react";
+import React, { JSX, useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -22,16 +22,81 @@ export const FloatingNav = ({
 }) => {
   const { scrollY } = useScroll();
   const [visible, setVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(false); 
+  const hasShownHint = React.useRef(false);
+  const isHinting = React.useRef(false);
+  const mouseX = React.useRef(0);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (current) => {
     if (typeof window !== "undefined") {
-      if (current > window.innerHeight * 0.5) {
-        setVisible(true);
+      const pastThreshold = current > window.innerHeight * 0.5;
+      setIsPastHero(pastThreshold);
+
+      if (isMobile) {
+        setVisible(pastThreshold);
       } else {
-        setVisible(false);
+        if (!pastThreshold) {
+          setVisible(false);
+          hasShownHint.current = false;
+          isHinting.current = false;
+        } else if (pastThreshold && !hasShownHint.current) {
+          // Show hint when first scrolling past hero
+          setVisible(true);
+          hasShownHint.current = true;
+          isHinting.current = true;
+
+          setTimeout(() => {
+            isHinting.current = false;
+            // Only hide if the user's mouse isn't currently hovering over the sidebar area
+            if (mouseX.current >= 80) {
+              setVisible(false);
+            }
+          }, 2500);
+        }
       }
     }
   });
+
+  useEffect(() => {
+    if (isMobile) return;
+
+    let timeoutId: NodeJS.Timeout;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.current = e.clientX;
+
+      if (!isPastHero) {
+        setVisible(false);
+        return;
+      }
+
+      if (e.clientX < 80) {
+        setVisible(true);
+        clearTimeout(timeoutId);
+      } else {
+        // If the hint is currently active, don't hide it prematurely
+        if (isHinting.current) return;
+
+        timeoutId = setTimeout(() => {
+          setVisible(false);
+        }, 200);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(timeoutId);
+    };
+  }, [isMobile, isPastHero]); 
 
   return (
     <AnimatePresence mode="wait">
@@ -73,7 +138,6 @@ export const FloatingNav = ({
               {/* Tooltip */}
               <span className="pointer-events-none absolute left-full ml-4 whitespace-nowrap rounded-lg bg-slate-800 px-2.5 py-1.5 text-xs font-medium text-white opacity-0 shadow-sm transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 dark:bg-slate-200 dark:text-slate-900">
                 {navItem.name}
-                {/* Tooltip Arrow */}
                 <div className="absolute left-[-4px] top-1/2 -translate-y-1/2 border-[5px] border-transparent border-r-slate-800 dark:border-r-slate-200"></div>
               </span>
             </div>
