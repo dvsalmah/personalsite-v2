@@ -13,6 +13,7 @@ import {
     contactSocialLink,
     viewportOnce,
 } from "@/lib/animations";
+import { sendEmailAction } from "@/app/actions/sendEmail";
 
 // Types 
 interface FormData {
@@ -44,33 +45,6 @@ function validateEmail(email: string): boolean {
     return EMAIL_REGEX.test(email);
 }
 
-async function sendEmail(formData: FormData): Promise<void> {
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-        throw new Error("Email configuration is missing.");
-    }
-
-    //   const emailjs = await import("@emailjs/browser");
-    //   const response = await emailjs.send(
-    //     serviceId,
-    //     templateId,
-    //     {
-    //       from_name: formData.name,
-    //       from_email: formData.email,
-    //       subject: formData.subject,
-    //       message: formData.message,
-    //     },
-    //     publicKey
-    //   );
-
-    //   if (response.status !== 200) {
-    //     throw new Error("Failed to send email.");
-    //   }
-}
-
 //  ContactSection 
 
 export default function ContactSection() {
@@ -99,15 +73,17 @@ export default function ContactSection() {
         setStatus({ type: "", message: "" });
 
         try {
-            await sendEmail(formData);
-            setStatus({ type: "success", message: "Message sent successfully! I'll get back to you soon." });
-            setFormData(EMPTY_FORM);
-            setEmailError("");
+            const result = await sendEmailAction(formData);
+            
+            if (result?.error) {
+                setStatus({ type: "error", message: result.error });
+            } else {
+                setStatus({ type: "success", message: "Message sent successfully! I'll get back to you soon." });
+                setFormData(EMPTY_FORM);
+                setEmailError("");
+            }
         } catch (error) {
-            const msg = error instanceof Error && error.message === "Email configuration is missing."
-                ? "Email configuration is missing. Please contact the administrator."
-                : "Failed to send message. Please try again or email me directly.";
-            setStatus({ type: "error", message: msg });
+            setStatus({ type: "error", message: "Failed to send message. Please try again or email me directly." });
         } finally {
             setIsLoading(false);
             setTimeout(() => setStatus({ type: "", message: "" }), 5000);
@@ -203,7 +179,7 @@ export default function ContactSection() {
                                 disabled={isLoading}
                                 className="w-[150px] lg:w-[180px]"
                             >
-                                {isLoading ? "Sending..." : "Send Message"}
+                                {isLoading ? "Sending" : "Send Message"}
                                 <SendHorizonal
                                     className={`w-4 h-4 lg:w-5 lg:h-5 transition-transform ${isLoading ? "animate-pulse" : ""}`}
                                 />
