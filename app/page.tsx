@@ -1,4 +1,4 @@
-import Navbar from "@/components/layout/sidebar";
+import SideNav from "@/components/layout/side-nav";
 import Footer from "@/components/layout/footer";
 import HeroSection from "@/components/sections/hero";
 import SkillSection from "@/components/sections/skills";
@@ -12,7 +12,7 @@ const CONTAINER_WIDTH = "max-w-6xl mx-auto px-6 md:px-12 lg:px-20";
 export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-background">
-      <Navbar />
+      <SideNav />
       <main>
         <HeroSection sectionClassName={SECTION_SPACING} containerClassName={CONTAINER_WIDTH} />
         <SkillSection sectionClassName={SECTION_SPACING} containerClassName={CONTAINER_WIDTH} />
