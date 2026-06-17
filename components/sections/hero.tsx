@@ -39,7 +39,7 @@ export default function HeroSection() {
           className="w-full h-full object-cover object-top"
         />
         <div className="dark:absolute dark:inset-0 dark:bg-black/60" />
-        <div className="hidden dark:block absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent md:bg-gradient-to-r md:from-background md:via-transparent md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent md:bg-gradient-to-r md:from-background md:via-transparent md:to-transparent" />
       </motion.div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-14 lg:px-20 py-24 flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
