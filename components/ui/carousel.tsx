@@ -6,7 +6,6 @@ interface ProjectCarouselProps {
   title: string;
 }
 
-/** Carousel gambar project — digunakan di PM & FE layout (DRY) */
 export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
   const [current, setCurrent] = useState(0);
 
@@ -37,14 +36,14 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
       <button
         onClick={prev}
         aria-label="Previous image"
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-[#F1A7C6] hover:bg-[#F1A7C6]/80 text-slate-900 border-none rounded-full flex items-center justify-center transition-colors"
+        className="cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-primary hover:bg-primary/80 text-slate-900 border-none rounded-full flex items-center justify-center transition-colors"
       >
         <ChevronLeft size={16} />
       </button>
       <button
         onClick={next}
         aria-label="Next image"
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-[#F1A7C6] hover:bg-[#F1A7C6]/80 text-slate-900 border-none rounded-full flex items-center justify-center transition-colors"
+        className="cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-primary hover:bg-primary/80 text-slate-900 border-none rounded-full flex items-center justify-center transition-colors"
       >
         <ChevronRight size={16} />
       </button>
@@ -56,7 +55,7 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`Go to image ${i + 1}`}
-            className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? "bg-[#F1A7C6] w-4" : "bg-white/40"
+            className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? "bg-primary w-4" : "bg-white/40"
               }`}
           />
         ))}

@@ -53,4 +53,40 @@ export const projects: Project[] = [
     liveDemo: "https://dealovaa-site.vercel.app",
     logo: "/assets/personalsite-icon.webp",
   },
+  {
+    id: "Taskly-app",
+    title: "Taskly-app",
+    tagline: "A Task Management platform for individuals and Teams",
+    description:
+      "Taskly is a web-based task management platform designed to help individuals and teams stay organized and productive.",
+    tags: ["Inertia.js", "Laravel", "Tailwind CSS", "Shadcn UI"],
+    context: "Personal Project",
+    github: "https://github.com/dvsalmah/Taskly-app",
+    liveDemo: "https://taskly-app-3k0w.onrender.com",
+    logo: "/assets/personalsite-1.webp",
+  },
+  {
+    id: "Indri Collection Website",
+    title: "Indri Collection",
+    tagline: "Built a website for Indri Collection as part of the Bakti Champions Movement initiative.",
+    description:
+      "Built a website for Indri Collection as part of the Bakti Champions Movement initiative, helping the business transition into the digital space through improved product visibility, branding, and customer engagement.",
+    tags: ["React.js", "Vite", "Tailwind CSS", "Shadcn UI"],
+    context: "Team Project",
+    github: "https://github.com/femnixx/indri-collection-website",
+    liveDemo: "https://indri-collection.vercel.app",
+    logo: "/assets/personalsite-2.webp",
+  },
+  {
+    id: "PersonalSite-v2",
+    title: "PersonalSite-v2",
+    tagline: "Modern personal portfolio website build with Next.Js, TypeScript, and Shadcn UI",
+    description:
+      "My newest personal portfolio website to showcase my projects and case studies",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
+    context: "Personal Project",
+    github: "https://github.com/dvsalmah/personalsite-v2",
+    liveDemo: "https://dealovaa.com",
+    logo: "/assets/personalsite-3.webp",
+  }
 ];
