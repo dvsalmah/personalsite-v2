@@ -1,7 +1,5 @@
 import type { Variants } from "framer-motion";
 
-// ─── Shared animation variants (DRY: satu tempat, tinggal import) ─────────────
-
 /** h2 section title: fade up */
 export const fadeUp: Variants = {
   initial: { opacity: 0, y: 30 },
@@ -12,7 +10,7 @@ export const fadeUp: Variants = {
   },
 };
 
-/** subtitle / paragraph: fade up dengan delay kecil */
+/** subtitle / paragraph*/
 export const fadeUpDelayed: Variants = {
   initial: { opacity: 0, y: 20 },
   whileInView: {
@@ -188,5 +186,5 @@ export const skillGrid: Variants = {
   },
 };
 
-/** viewport config yang paling umum dipakai */
+/** viewport config */
 export const viewportOnce = { once: true, amount: 0.3 } as const;
