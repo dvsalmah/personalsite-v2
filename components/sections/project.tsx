@@ -78,13 +78,19 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
 
 // ─── ProjectSection ───────────────────────────────────────────────────────────
 
-export default function ProjectSection() {
+export default function ProjectSection({
+  sectionClassName,
+  containerClassName,
+}: {
+  sectionClassName?: string;
+  containerClassName?: string;
+}) {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
 
   return (
     <>
-      <section id="projects" className="py-24 bg-background text-text px-8 md:px-16 lg:px-24">
-        <div className="max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto px-4 md:px-0">
+      <section id="projects" className={`bg-background text-text ${sectionClassName || "py-24 px-8 md:px-16 lg:px-24"}`}>
+        <div className={`w-full ${containerClassName || "max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto px-4 md:px-0"}`}>
           <div className="text-center mb-12">
             <SectionHeader
               title="Featured Projects"

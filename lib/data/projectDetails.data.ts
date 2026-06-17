@@ -381,6 +381,28 @@ Market Opportunity: With 70.6 million households in Indonesia and 60% of consume
     liveUrl: "https://indri-collection.vercel.app",
     repoUrl: "https://github.com/femnixx/indri-collection-website",
   },
+  "Metrica":{
+    type: "fe",
+    title: "Metrica",
+    tagline: "A Metric Financial Visualizer",
+    teamSize: "Personal Project",
+    year: "2026",
+    images: [
+      "/assets/metrica-1.png",
+      "/assets/metrica-2.png"
+    ],
+    overview: `Metrica is a web-based Financial Visualizer designed to help individuals and teams track and analyze their finances metric.`,
+    features: [
+      "Responsive design",
+      "Macro data inputs",
+      "Financial Metric Visualization",
+      "IRR, ROI, NPV, and PBP Calculation",
+      "Performance optimized"
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
+    liveUrl: "https://metriica.vercel.app",
+    repoUrl: "https://github.com/dvsalmah/metrica",
+  },
   "PersonalSite-v2":{
     type: "fe",
     title: "PersonalSite-v2",

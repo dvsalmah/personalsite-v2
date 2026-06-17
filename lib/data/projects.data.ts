@@ -78,6 +78,18 @@ export const projects: Project[] = [
     logo: "/assets/personalsite-2.webp",
   },
   {
+    id: "Metrica",
+    title: "Metrica",
+    tagline: "Your financial metric calculator and visualizer",
+    description:
+      "Metrica is a web-based financial visualizer designed to help individuals and teams track and analyze their finances metric.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
+    context: "Personal Project",
+    github: "https://github.com/dvsalmah/metrica",
+    liveDemo: "https://metriica.vercel.app",
+    logo: "/assets/personalsite-3.webp",
+  },
+  {
     id: "PersonalSite-v2",
     title: "PersonalSite-v2",
     tagline: "Modern personal portfolio website build with Next.Js, TypeScript, and Shadcn UI",
