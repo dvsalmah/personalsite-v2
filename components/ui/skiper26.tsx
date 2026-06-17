@@ -744,11 +744,12 @@ const getTransformOrigin = (start: AnimationStart) => {
       return "top center";
     case "bottom-center":
       return "bottom center";
-    // For directional positions, default to center
     case "bottom-up":
     case "top-down":
     case "left-right":
     case "right-left":
+    case "center":
+    default:
       return "center";
   }
 };
