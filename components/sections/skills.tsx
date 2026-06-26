@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeader } from "@/components/ui/sectionHeader";
 import { skillCategories } from "@/lib/data/skills.data";
@@ -16,6 +16,14 @@ export default function SkillSection({
   containerClassName?: string;
 }) {
   const [activeTab, setActiveTab] = useState(skillCategories[0].title);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // Check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section id="skills" className={`relative overflow-hidden ${sectionClassName || "py-24"}`}>
@@ -45,7 +53,7 @@ export default function SkillSection({
             ))}
           </TabsList>
 
-          <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg mt-8">
+          <div className="relative flex h-125 w-full flex-col items-center justify-center overflow-hidden rounded-lg mt-8">
             {skillCategories.map((category) => {
               const innerSkills = category.skills.slice(0, Math.ceil(category.skills.length / 2));
               const outerSkills = category.skills.slice(Math.ceil(category.skills.length / 2));
@@ -63,17 +71,17 @@ export default function SkillSection({
                     transition={{ duration: 0.5 }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
-                    <span className="pointer-events-none absolute whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center text-5xl font-semibold leading-none text-transparent dark:from-primary dark:to-secondary">
+                    <span className="pointer-events-none absolute whitespace-pre-wrap bg-linear-to-b from-black to-gray-300 bg-clip-text text-center text-3xl md:text-4xl font-semibold leading-none text-transparent dark:from-primary dark:to-secondary">
                       {category.title}
                     </span>
 
                     {/* Inner Circles */}
                     {innerSkills.length > 0 && (
                       <OrbitingCircles
-                        className="size-15 border-none bg-transparent"
+                        className="size-10 md:size-15 border-none bg-transparent"
                         duration={20}
                         delay={5}
-                        radius={150}
+                        radius={isMobile ? 110 : 150}
                         iconSize={40}
                       >
                         {innerSkills.map((skill, idx) => {
@@ -93,8 +101,8 @@ export default function SkillSection({
                     {/* Outer Circles (reverse) */}
                     {outerSkills.length > 0 && (
                       <OrbitingCircles
-                        className="size-[60px] border-none bg-transparent"
-                        radius={230}
+                        className="size-10 md:size-15 border-none bg-transparent"
+                        radius={isMobile ? 170 : 230}
                         duration={15}
                         reverse
                         iconSize={40}
