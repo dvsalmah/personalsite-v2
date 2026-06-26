@@ -34,7 +34,7 @@ export default function HeroSection({
       >
       </motion.div>
       <motion.div 
-        className="absolute top-0 right-0 w-full md:w-5/12 lg:w-1/2 h-full z-0 pointer-events-none"
+        className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 pointer-events-none"
         variants={heroImage}
         initial="initial"
         animate="animate"
@@ -45,12 +45,18 @@ export default function HeroSection({
           className="w-full h-full object-cover object-top"
         />
         <div className="dark:absolute dark:inset-0 dark:bg-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent md:bg-gradient-to-r md:from-background md:via-transparent md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent lg:hidden" />
+        
+        <div className="hidden lg:block absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/5 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/5 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-background via-background/40 to-transparent" />
+        </div>
       </motion.div>
 
-      <div className={`relative z-10 w-full flex flex-col md:grid md:grid-cols-2 gap-12 items-center ${containerClassName || ""} ${sectionClassName || ""}`}>
+      <div className={`relative z-10 w-full flex flex-col lg:grid lg:grid-cols-1 items-center ${containerClassName || ""} ${sectionClassName || ""}`}>
         <motion.div
-          className="max-w-prose text-center md:text-left"
+          className="max-w-prose text-center lg:text-left lg:-translate-x-44"
           variants={heroContent}
           initial="initial"
           animate="animate"
@@ -62,12 +68,12 @@ export default function HeroSection({
             </span>
           </h1>
 
-          <p className="mt-2 md:mt-4 text-base md:text-sm text-slate-400 leading-relaxed">
+          <p className="mt-2 md:mt-4 text-base md:text-md text-text/50 leading-relaxed">
             Interested in software development, web technologies, and digital products. Passionate about building practical solutions and creating meaningful experiences for users.
           </p>
 
           <motion.div
-            className="mt-6 md:mt-8 flex gap-3 md:gap-4 justify-center md:justify-start"
+            className="mt-6 md:mt-8 flex gap-3 md:gap-4 justify-center lg:justify-start"
             variants={heroButtonContainer}
             initial="initial"
             animate="animate"
@@ -94,8 +100,7 @@ export default function HeroSection({
           </motion.div>
         </motion.div>
 
-        {/* Empty div to balance the grid on desktop so text stays on the left */}
-        <div className="hidden md:block"></div>
+        <div className="hidden lg:block"></div>
       </div>
     </section>
   );
