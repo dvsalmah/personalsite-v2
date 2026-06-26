@@ -33,7 +33,7 @@ interface StatusState {
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const INPUT_BASE =
-    "w-full px-3 py-2 bg-surface dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg focus:border-primary focus:shadow-xl focus:shadow-primary/20 focus:outline-none transition-colors text-text placeholder:text-text/50";
+    "w-full px-3 py-2 bg-surface dark:bg-slate-800 border border-slate-300 rounded-lg focus:border-primary focus:shadow-md focus:shadow-primary/20 focus:outline-none transition-colors text-text placeholder:text-text/50";
 
 const SOCIAL_ICON_MAP = { mail: Mail, github: Github, linkedin: Linkedin, instagram: Instagram };
 
