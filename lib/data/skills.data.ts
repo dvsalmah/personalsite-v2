@@ -15,7 +15,8 @@ import { SiNotion,
         SiTypescript,
         SiGit,
         SiFigma,
-        SiVercel
+        SiVercel,
+        SiJavascript
       } from "react-icons/si";
 import { FaJava, FaDatabase } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
@@ -61,8 +62,9 @@ export const skillCategories: SkillCategory[] = [
     title: "Languages",
     skills: [
       { name: "Java", icon: FaJava },
-      { name: "Python", icon: SiPython },
       { name: "TypeScript", icon: SiTypescript },
+      { name: "Python", icon: SiPython },
+      { name: "JavaScript", icon: SiJavascript},
     ],
   },
   {
