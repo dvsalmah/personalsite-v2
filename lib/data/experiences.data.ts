@@ -46,6 +46,7 @@ export const experiencesData: Experience[] = [
       description:
       "Chosen as a Bakti BCA Scholarship Awardee for academic excellence and leadership impact. Actively involved in development programs, workshops, and training sessions focused on business strategy, financial analysis, and professional communication.",
       tech: ["Leadership", "Problem solving", "Professional Development", "Networking"],
+      priority: true,
   },
   {
     title: "Raion Community FILKOM UB",
@@ -53,6 +54,7 @@ export const experiencesData: Experience[] = [
     role: "Vice Chief of Resource and Development Unit",
     description: "Lead human resource development initiatives and monitor work programs.",
     tech: ["Leadership", "Strategic Planning", "Team Management"],
+    priority:true,
   },
   {
     title: "Teaching Assistant: Advance Programming",
@@ -67,5 +69,6 @@ export const experiencesData: Experience[] = [
     role: "Codelab Indonesia",
     description:
       "Proposed Styloop, a fashion platform that brings together resale, repair, and rental services into a single ecosystem, enabling a more sustainable approach to clothing consumption.",
+    priority: true,
   }
 ];

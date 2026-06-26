@@ -9,6 +9,7 @@ export interface Project {
   logo: string;
   github?: string;
   liveDemo?: string;
+  priority?: boolean;
 }
 
 // ─── Challenge item inside ProjectDetail ──────────────────────────────────────
@@ -71,6 +72,7 @@ export interface Experience {
   role: string;
   description: string;
   tech?: string[];
+  priority?: boolean;
 }
 
 // ─── Skill Category ───────────────────────────────────────────────────────────
