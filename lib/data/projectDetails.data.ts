@@ -400,7 +400,7 @@ Market Opportunity: With 70.6 million households in Indonesia and 60% of consume
       "Performance optimized"
     ],
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
-    liveUrl: "https://metriica.vercel.app",
+    liveUrl: "https://metrica.dealovaa.space",
     repoUrl: "https://github.com/dvsalmah/metrica",
   },
   "PersonalSite-v2":{
@@ -423,7 +423,7 @@ Market Opportunity: With 70.6 million households in Indonesia and 60% of consume
       "Performance optimized",
     ],
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
-    liveUrl: "https://dealovaa.com",
+    liveUrl: "https://dealovaa.space",
     repoUrl: "https://github.com/dvsalmah/personalsite-v2",
   }
 };
