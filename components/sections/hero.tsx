@@ -44,7 +44,7 @@ export default function HeroSection({
           alt="Dealova Nabila"
           className="w-full h-full object-cover object-top"
         />
-        <div className="dark:absolute dark:inset-0 dark:bg-black/60" />
+        <div className="dark:absolute dark:inset-0 dark:bg-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent lg:hidden" />
         
         <div className="hidden lg:block absolute inset-0">
