@@ -10,6 +10,7 @@ export const projects: Project[] = [
     tags: ["Career-Tech", "Marketing Lead", "GTM Strategy", "3-Person Team"],
     context: "National Business Plan Competition",
     logo: "/assets/urjobs-icon.webp",
+    priority: true,
   },
   {
     id: "styleme",
@@ -20,6 +21,7 @@ export const projects: Project[] = [
     tags: ["Fashion-Tech", "Strategy Lead", "Product Vision", "3-Person Team"],
     context: "National Business Plan Competition",
     logo: "/assets/styleme-icon.webp",
+    priority: true,
   },
   {
     id: "saveup",
@@ -30,6 +32,7 @@ export const projects: Project[] = [
     tags: ["Fintech", "Product Manager", "Agile/Scrum", "3-Person Team"],
     context: "Collaboration Project",
     logo: "/assets/saveup-icon.webp",
+    priority: true,
   },
   {
     id: "takara",

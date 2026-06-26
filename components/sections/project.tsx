@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/sectionHeader";
 import { projects } from "@/lib/data/projects.data";
 import { projectDetails } from "@/lib/data/projectDetails.data";
 import { staggerContainer, cardVariant } from "@/lib/animations";
 import { ProjectModal } from "@/components/ui/project-modal";
+import { Button } from '@/components/ui/button';
 import type { Project } from "@/types";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -86,6 +87,22 @@ export default function ProjectSection({
   containerClassName?: string;
 }) {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
+    checkDesktop();
+    setMounted(true);
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
+
+  const sortedProjects = [...projects].sort((a, b) => (b.priority ? 1 : 0) - (a.priority ? 1 : 0));
+  const displayProjects = (isDesktop || showAll) ? sortedProjects : sortedProjects.slice(0, 3);
+  // Show the button only after mounted (client-side) and when there are more than 3 items on non-desktop
+  const hasMore = mounted && sortedProjects.length > 3 && !isDesktop;
 
   return (
     <>
@@ -99,17 +116,18 @@ export default function ProjectSection({
           </div>
 
           <motion.div
+            key={`projects-${showAll}-${isDesktop}`}
             className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6"
             variants={staggerContainer}
             initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true, amount: 0.1 }}
+            animate="whileInView"
+            viewport={{ once: false, amount: 0.05 }}
           >
-            {projects.map((project, index) => (
+            {displayProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={cardVariant}
-                className={getPositioningClass(index, projects.length)}
+                className={getPositioningClass(index, displayProjects.length)}
               >
                 <ProjectCard
                   project={project}
@@ -118,6 +136,16 @@ export default function ProjectSection({
               </motion.div>
             ))}
           </motion.div>
+
+          {hasMore && (
+            <div className="mt-12 flex justify-center lg:hidden">
+              <Button
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? "Show Less" : "Show More"}
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 
