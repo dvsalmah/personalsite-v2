@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     description:
       "Product Manager & CS student passionate about turning complex ideas into user-centered products.",
     type: "website",
+    siteName: "Dealova Nabila",
+    
   },
 };
 
